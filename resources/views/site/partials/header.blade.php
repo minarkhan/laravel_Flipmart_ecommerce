@@ -1,7 +1,6 @@
 
 <!-- ============================================== HEADER ============================================== -->
-<header class="header-style-1"> 
-  
+<header class="header-style-1">   
   <!-- ============================================== TOP MENU ============================================== -->
   <div class="top-bar animate-dropdown">
     <div class="container">
@@ -123,34 +122,56 @@
             <div class="items-cart-inner">
               <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
               <div class="basket-item-count"><span class="count">{{ $cartCount }}</span></div>
-              <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">$</span><span class="value">600.00</span> </span> </div>
+
+              <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">$</span><span class="value">{{ $cartTotal }}</span> </span> </div>
             </div>
 
             </a>
             <ul class="dropdown-menu">
-              <li>
-                <div class="cart-item product-summary">
-                  <div class="row">
-                    <div class="col-xs-4">
-                      <div class="image"> <a href="detail.html"><img src="{{asset('assets/website')}}/images/cart.jpg" alt=""></a> </div>
+
+
+
+
+                <li> 
+                @foreach ($items as $item)
+                  <div class="cart-item product-summary">
+                    <div class="row">
+                      <div class="col-xs-4">
+                        <?php $i =1; ?>
+                        @foreach ($productImgs as $image)
+                        @if($image->product_id == $item->id && $i == 1)
+                          <div class="image">
+                            <a href="{{ route('checkout.cart') }}"><img src="{{ asset('storage/'.$image->full) }}" alt=""></a>
+                          </div>
+                          <?php $i++; ?>
+                        @endif
+                        @endforeach
+                      </div>
+                      <div class="col-xs-7">
+                        <h3 class="name"><a href="{{ route('checkout.cart') }}">{{$item->name}}</a></h3>
+                    <div style="font-size: 10px;" class="price">{{$item->price}}x{{$item->quantity}} = {{$item->price*$item->quantity}}</div>
+                      </div>
+                      <div class="col-xs-1 action">
+                        <a href="{{ route('checkout.cart.remove', $item->id) }}" class=""><i class="fa fa-trash"></i> </a>
+                     </div>
                     </div>
-                    <div class="col-xs-7">
-                      <h3 class="name"><a href="index8a95.html?page-detail">Simple Product</a></h3>
-                      <div class="price">$600.00</div>
-                    </div>
-                    <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
                   </div>
-                </div>
-                <!-- /.cart-item -->
-                <div class="clearfix"></div>
-                <hr>
-                <div class="clearfix cart-total">
-                  <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>$600.00</span> </div>
+                  <!-- /.cart-item -->
+                @endforeach
+
                   <div class="clearfix"></div>
-                  <a href="{{ route('checkout.cart') }}" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> </div>
-                <!-- /.cart-total--> 
-                
-              </li>
+                  <hr>
+                  <div class="clearfix cart-total">
+                    <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>{{ $cartTotal }}</span> </div>
+                    <div class="clearfix"></div>
+                    <a href="{{ route('checkout.cart') }}" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
+                  </div>
+                  <!-- /.cart-total--> 
+                </li>
+
+
+
+
             </ul>
             <!-- /.dropdown-menu--> 
           </div>

@@ -26,6 +26,7 @@ class CheckoutController extends Controller
         // request validation which I leave it to you
         $order = $this->orderRepository->storeOrderDetails($request->all());
  
-        dd($order);
+        // dd($order);
+         return view('site.pages.order_success', compact('order'));
     }
 }

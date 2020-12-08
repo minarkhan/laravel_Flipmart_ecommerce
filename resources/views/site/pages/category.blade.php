@@ -165,7 +165,10 @@
                                                         <div class="action">
                                                             <ul class="list-unstyled">
                                                                 <li class="add-cart-button btn-group">
-                                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button"><i class="fa fa-shopping-cart"></i></button>
+                                                                    <a href="{{ route('product.show', $product->slug) }}">
+                                                                        <button class="btn btn-primary icon" data-toggle="" type="button"><i class="fa fa-shopping-cart"></i></button>
+                                                                        
+                                                                    </a>
                                                                     <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                                                 </li>
                                                                 <li class="lnk wishlist"><a class="add-to-cart" href="{{ route('product.show', $product->slug) }}" title="Wishlist"> <i class="icon fa fa-heart"></i> </a></li>

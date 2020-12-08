@@ -1,5 +1,5 @@
 <!-- ========================================== FOOTER =============================================== -->
-<footer id="footer" class="footer color-bg">
+<footer id="footer" class=" mt-5 footer color-bg">
   <div class="footer-bottom">
     <div class="container">
       <div class="row">

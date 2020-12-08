@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\ProductImage;
 use App\Models\Category;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -24,7 +25,16 @@ class ViewComposerServiceProvider extends ServiceProvider
         });
 
         View::composer('site.partials.header', function ($view) {
-            $view->with('cartCount', Cart::getContent()->count());
+
+            $productImgs = ProductImage::all();
+            $items = Cart::getContent();
+            $cartTotal = Cart::getSubTotal();
+            $cartCount = Cart::getContent()->count();
+            $view
+                ->with('cartTotal', $cartTotal)
+                ->with('cartCount', $cartCount)
+                ->with('items', $items)
+                ->with('productImgs', $productImgs);
         });
     }
 }
