@@ -1,3 +1,12 @@
+clone and run this comments
+cd Laravel-E-commerce-Part-9
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+php artisan serve
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
