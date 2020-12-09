@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Category;
 use Illuminate\Support\Facades\View;
@@ -35,6 +36,10 @@ class ViewComposerServiceProvider extends ServiceProvider
                 ->with('cartCount', $cartCount)
                 ->with('items', $items)
                 ->with('productImgs', $productImgs);
+        });
+
+        View::composer('site.partials.upsell_product', function ($view) {
+            $view->with('products', Product::all());
         });
     }
 }

@@ -185,9 +185,9 @@
                                             <!-- /.products -->
                                         </div>
                                         <!-- /.item -->
-@empty
-                    <p>No Products found in {{ $category->name }}.</p>
-                @endforelse
+                                        @empty
+                                        <p>No Products found in {{ $category->name }}.</p>
+                                        @endforelse
 
 
 

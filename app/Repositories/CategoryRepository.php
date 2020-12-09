@@ -152,4 +152,13 @@ class CategoryRepository extends BaseRepository implements CategoryContract
         ->where('menu', 1)
         ->first();
 }
+
+
+public function categoryWithProducts()
+{
+    return Category::with('products')->get();
+}
+
+
+
 }

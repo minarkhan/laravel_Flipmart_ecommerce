@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2020 at 08:11 AM
+-- Generation Time: Dec 09, 2020 at 09:01 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -155,7 +155,8 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `description`, `parent_id`, `fea
 (18, 'T-shirt', 't-shirt', NULL, 11, 1, 1, NULL, '2020-12-07 16:00:48', '2020-12-07 22:13:35'),
 (19, 'Winter Blazers', 'winter-blazers', NULL, 11, 1, 1, NULL, '2020-12-07 16:01:00', '2020-12-07 22:53:37'),
 (20, 'watch', 'watch', NULL, 11, 1, 1, 'categories/Q3AE7CaQbW42rsTnLaYIScCH2.jpg', '2020-12-07 16:00:35', '2020-12-07 22:15:43'),
-(21, 'woman', 'woman', NULL, 11, 1, 1, NULL, '2020-12-07 22:53:16', '2020-12-07 22:53:16');
+(21, 'woman', 'woman', NULL, 11, 1, 1, NULL, '2020-12-07 22:53:16', '2020-12-07 22:53:16'),
+(22, 'Electronics', 'electronics', 'dafasd', 1, 1, 1, NULL, '2020-12-08 20:38:45', '2020-12-08 20:39:53');
 
 -- --------------------------------------------------------
 
@@ -229,7 +230,13 @@ INSERT INTO `orders` (`id`, `order_number`, `user_id`, `status`, `grand_total`, 
 (3, 'ORD-5FCE91CC6918C', 1, 'pending', '1000.000000', 2, 0, NULL, 'Moaref', 'Billah', 'Ramdi, Ward no- 6, Bhuiyanhat, Kabirhat, Noakhali', 'Noakhali', 'Bangladesh', '3807', '01856230550', NULL, '2020-12-07 14:34:20', '2020-12-07 14:34:20'),
 (4, 'ORD-5FCE9BFF98209', 1, 'pending', '1000.000000', 2, 0, NULL, 'Moaref', 'Billah', 'Ramdi, Ward no- 6, Bhuiyanhat, Kabirhat, Noakhali', 'Noakhali', 'Bangladesh', '3807', '01856230550', NULL, '2020-12-07 15:17:51', '2020-12-07 15:17:51'),
 (5, 'ORD-5FCE9C8B2F23F', 1, 'pending', '1000.000000', 2, 0, NULL, 'WeShare', 'Billah', '123 Street', 'Phnom Penh', 'Cambodia', '12252', '010313234', NULL, '2020-12-07 15:20:11', '2020-12-07 15:20:11'),
-(6, 'ORD-5FCF231A757F7', 1, 'pending', '5400.000000', 6, 0, NULL, 'Moaref', 'Billah', 'Ramdi, Ward no- 6, Bhuiyanhat, Kabirhat, Noakhali', 'Noakhali', 'Bangladesh', '3807', '01856230550', NULL, '2020-12-08 00:54:18', '2020-12-08 00:54:18');
+(6, 'ORD-5FCF231A757F7', 1, 'pending', '5400.000000', 6, 0, NULL, 'Moaref', 'Billah', 'Ramdi, Ward no- 6, Bhuiyanhat, Kabirhat, Noakhali', 'Noakhali', 'Bangladesh', '3807', '01856230550', NULL, '2020-12-08 00:54:18', '2020-12-08 00:54:18'),
+(7, 'ORD-5FCFE7A21200A', 1, 'pending', '15000.000000', 3, 0, NULL, 'Moaref', 'Billah', 'Ramdi, Ward no- 6, Bhuiyanhat, Kabirhat, Noakhali', 'Noakhali', 'Bangladesh', '3807', '01856230550', NULL, '2020-12-08 14:52:50', '2020-12-08 14:52:50'),
+(8, 'ORD-5FCFF2B8DDCB6', 1, 'pending', '99.000000', 1, 0, NULL, 'Moaref', 'Billah', 'Ramdi, Ward no- 6, Bhuiyanhat, Kabirhat, Noakhali', 'Noakhali', 'Bangladesh', '3807', '01856230550', NULL, '2020-12-08 15:40:08', '2020-12-08 15:40:08'),
+(9, 'ORD-5FCFF3D43FDE6', 1, 'pending', '99.000000', 1, 0, NULL, 'Moaref', 'Billah', 'Ramdi, Ward no- 6, Bhuiyanhat, Kabirhat, Noakhali', 'Noakhali', 'Bangladesh', '3807', '01856230550', NULL, '2020-12-08 15:44:52', '2020-12-08 15:44:52'),
+(10, 'ORD-5FCFF44961194', 1, 'pending', '99.000000', 1, 0, NULL, 'Moaref', 'Billah', 'Ramdi, Ward no- 6, Bhuiyanhat, Kabirhat, Noakhali', 'Noakhali', 'Bangladesh', '3807', '01856230550', NULL, '2020-12-08 15:46:49', '2020-12-08 15:46:49'),
+(11, 'ORD-5FCFF4680BE52', 1, 'pending', '99.000000', 1, 0, NULL, 'Moaref', 'Billah', 'Ramdi, Ward no- 6, Bhuiyanhat, Kabirhat, Noakhali', 'Noakhali', 'Bangladesh', '3807', '01856230550', NULL, '2020-12-08 15:47:20', '2020-12-08 15:47:20'),
+(12, 'ORD-5FCFF4A2ACA25', 1, 'pending', '500.000000', 1, 0, NULL, 'Moaref', 'Billah', 'Ramdi, Ward no- 6, Bhuiyanhat, Kabirhat, Noakhali', 'Noakhali', 'Bangladesh', '3807', '01856230550', NULL, '2020-12-08 15:48:18', '2020-12-08 15:48:18');
 
 -- --------------------------------------------------------
 
@@ -259,7 +266,13 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, 
 (5, 5, 1, 2, '1000.000000', '2020-12-07 15:20:11', '2020-12-07 15:20:11'),
 (6, 6, 12, 1, '900.000000', '2020-12-08 00:54:18', '2020-12-08 00:54:18'),
 (7, 6, 12, 1, '900.000000', '2020-12-08 00:54:18', '2020-12-08 00:54:18'),
-(8, 6, 12, 4, '3600.000000', '2020-12-08 00:54:18', '2020-12-08 00:54:18');
+(8, 6, 12, 4, '3600.000000', '2020-12-08 00:54:18', '2020-12-08 00:54:18'),
+(9, 7, 8, 3, '15000.000000', '2020-12-08 14:52:50', '2020-12-08 14:52:50'),
+(10, 8, 6, 1, '99.000000', '2020-12-08 15:40:08', '2020-12-08 15:40:08'),
+(11, 9, 6, 1, '99.000000', '2020-12-08 15:44:52', '2020-12-08 15:44:52'),
+(12, 10, 6, 1, '99.000000', '2020-12-08 15:46:49', '2020-12-08 15:46:49'),
+(13, 11, 6, 1, '99.000000', '2020-12-08 15:47:20', '2020-12-08 15:47:20'),
+(14, 12, 1, 1, '500.000000', '2020-12-08 15:48:18', '2020-12-08 15:48:18');
 
 -- --------------------------------------------------------
 
@@ -301,12 +314,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `brand_id`, `sku`, `name`, `slug`, `description`, `quantity`, `weight`, `price`, `sale_price`, `status`, `featured`, `created_at`, `updated_at`) VALUES
-(1, 1, 'bata-5', 'Mes Shoes', 'mes-shoes', 'About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.\r\nAbout Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.\r\nAbout Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.', 6, '64.00', '500.00', NULL, 1, 1, '2020-12-07 12:16:42', '2020-12-07 15:20:11'),
+(1, 1, 'bata-5', 'Mes Shoes', 'mes-shoes', 'About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.\r\nAbout Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.\r\nAbout Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.', 5, '64.00', '500.00', NULL, 1, 0, '2020-12-07 12:16:42', '2020-12-08 15:48:18'),
 (5, 1, 'sadf', 'WeShare', 'weshare', NULL, 12, '5.00', '500.00', NULL, 1, 1, '2020-12-07 15:45:22', '2020-12-07 15:45:22'),
-(6, 1, 'lotto-20', 'WeShare Billah', 'weshare-billah', NULL, 11, NULL, '99.00', NULL, 1, 1, '2020-12-07 16:09:29', '2020-12-07 16:09:29'),
-(7, 1, 'lotto-45', 'Woman Crystal sandale', 'woman-crystal-sandale', NULL, 11, NULL, '1000.00', NULL, 1, 1, '2020-12-07 22:43:22', '2020-12-07 22:43:22'),
-(8, 1, '8965', 'Men shoes', 'men-shoes', 'About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.', 10, NULL, '5000.00', NULL, 1, 1, '2020-12-07 22:47:06', '2020-12-07 22:47:06'),
-(10, 6, '4569', 'Shirt', 'shirt', 'About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.', 20, NULL, '5000.00', NULL, 1, 1, '2020-12-07 22:51:29', '2020-12-07 22:51:29'),
+(6, 1, 'lotto-20', 'WeShare Billah', 'weshare-billah', NULL, 7, NULL, '99.00', NULL, 1, 0, '2020-12-07 16:09:29', '2020-12-08 15:47:20'),
+(7, 1, 'lotto-45', 'Woman Crystal sandale', 'woman-crystal-sandale', NULL, 11, NULL, '1000.00', NULL, 1, 0, '2020-12-07 22:43:22', '2020-12-07 22:43:22'),
+(8, 1, '8965', 'Men shoes', 'men-shoes', 'About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.', 7, NULL, '5000.00', NULL, 1, 1, '2020-12-07 22:47:06', '2020-12-08 14:52:50'),
+(10, 6, '4569', 'Shirt', 'shirt', 'About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.', 20, NULL, '5000.00', NULL, 1, 0, '2020-12-07 22:51:29', '2020-12-07 22:51:29'),
 (11, 2, '12389', 'Ladis jacket', 'ladis-jacket', 'About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.', 26, NULL, '1000.00', NULL, 1, 1, '2020-12-07 22:52:49', '2020-12-07 22:52:49'),
 (12, 6, '963', 'blazer', 'blazer', 'About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility. About Swapon\'s WorldSwapon\'s World is a trusted and reliable source for all your garment related needs from Bangladesh. Swapon\'s World manufactures and supplies quality products in all categories at a competitive price range from their own and sister production facility.', 6, NULL, '1000.00', '900.00', 1, 0, '2020-12-07 22:55:55', '2020-12-08 00:54:18');
 
@@ -419,24 +432,24 @@ INSERT INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
 (2, 'site_title', 'E-Commerce', '2020-12-07 12:12:01', '2020-12-07 12:12:01'),
 (3, 'default_email_address', 'admin@admin.com', '2020-12-07 12:12:01', '2020-12-07 12:12:01'),
 (4, 'currency_code', 'GBP', '2020-12-07 12:12:01', '2020-12-07 12:12:01'),
-(5, 'currency_symbol', '£', '2020-12-07 12:12:01', '2020-12-07 12:12:01'),
-(6, 'site_logo', '', '2020-12-07 12:12:01', '2020-12-07 12:12:01'),
-(7, 'site_favicon', '', '2020-12-07 12:12:01', '2020-12-07 12:12:01'),
-(8, 'footer_copyright_text', '', '2020-12-07 12:12:01', '2020-12-07 12:12:01'),
-(9, 'seo_meta_title', '', '2020-12-07 12:12:01', '2020-12-07 12:12:01'),
-(10, 'seo_meta_description', '', '2020-12-07 12:12:01', '2020-12-07 12:12:01'),
-(11, 'social_facebook', '', '2020-12-07 12:12:01', '2020-12-07 12:12:01'),
-(12, 'social_twitter', '', '2020-12-07 12:12:02', '2020-12-07 12:12:02'),
-(13, 'social_instagram', '', '2020-12-07 12:12:02', '2020-12-07 12:12:02'),
-(14, 'social_linkedin', '', '2020-12-07 12:12:02', '2020-12-07 12:12:02'),
+(5, 'currency_symbol', '$', '2020-12-07 12:12:01', '2020-12-08 15:34:35'),
+(6, 'site_logo', 'img/rT31TqoRUXIni6Q7sINV9rYcL.jpg', '2020-12-07 12:12:01', '2020-12-08 15:36:04'),
+(7, 'site_favicon', 'img/3ZQPcpCAo9kI9QTDMoxiI5GIm.jpg', '2020-12-07 12:12:01', '2020-12-08 15:36:40'),
+(8, 'footer_copyright_text', 'All right reserve minarkhan.com', '2020-12-07 12:12:01', '2020-12-08 15:37:41'),
+(9, 'seo_meta_title', 'All right reserve minarkhan.com', '2020-12-07 12:12:01', '2020-12-08 15:37:41'),
+(10, 'seo_meta_description', 'All right reserve minarkhan.comAll right reserve minarkhan.com', '2020-12-07 12:12:01', '2020-12-08 15:37:41'),
+(11, 'social_facebook', 'https://www.facebook.com/minar1995', '2020-12-07 12:12:01', '2020-12-08 15:38:51'),
+(12, 'social_twitter', 'twitter', '2020-12-07 12:12:02', '2020-12-08 15:38:51'),
+(13, 'social_instagram', 'insttragram', '2020-12-07 12:12:02', '2020-12-08 15:38:51'),
+(14, 'social_linkedin', 'linkdin', '2020-12-07 12:12:02', '2020-12-08 15:38:51'),
 (15, 'google_analytics', '', '2020-12-07 12:12:02', '2020-12-07 12:12:02'),
 (16, 'facebook_pixels', '', '2020-12-07 12:12:02', '2020-12-07 12:12:02'),
-(17, 'stripe_payment_method', '', '2020-12-07 12:12:02', '2020-12-07 12:12:02'),
-(18, 'stripe_key', '', '2020-12-07 12:12:02', '2020-12-07 12:12:02'),
-(19, 'stripe_secret_key', '', '2020-12-07 12:12:02', '2020-12-07 12:12:02'),
-(20, 'paypal_payment_method', '', '2020-12-07 12:12:02', '2020-12-07 12:12:02'),
-(21, 'paypal_client_id', '', '2020-12-07 12:12:02', '2020-12-07 12:12:02'),
-(22, 'paypal_secret_id', '', '2020-12-07 12:12:02', '2020-12-07 12:12:02');
+(17, 'stripe_payment_method', '1', '2020-12-07 12:12:02', '2020-12-08 15:39:38'),
+(18, 'stripe_key', NULL, '2020-12-07 12:12:02', '2020-12-08 15:39:38'),
+(19, 'stripe_secret_key', NULL, '2020-12-07 12:12:02', '2020-12-08 15:39:38'),
+(20, 'paypal_payment_method', '1', '2020-12-07 12:12:02', '2020-12-08 15:39:38'),
+(21, 'paypal_client_id', NULL, '2020-12-07 12:12:02', '2020-12-08 15:39:38'),
+(22, 'paypal_secret_id', NULL, '2020-12-07 12:12:02', '2020-12-08 15:39:38');
 
 -- --------------------------------------------------------
 
@@ -608,7 +621,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -620,13 +633,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `products`
