@@ -52,7 +52,7 @@ public function store(Request $request){
         'description'      =>  'required|max:191',
         'button_text'      =>  'required|max:191',
         'button_link'      =>  'required|max:191',
-        'image'     =>  'mimes:jpg,jpeg,png|max:1000'
+        'image'     =>  'required|mimes:jpg,jpeg,png|max:1000'
     ]);
 
     $params = $request->except('_token');
@@ -71,10 +71,10 @@ public function store(Request $request){
  */
 public function edit($id)
 {
-    $Slide = $this->slideRepository->findSlideById($id);
+    $slide = $this->slideRepository->findSlideById($id);
 
-    $this->setPageTitle('Slides', 'Edit Slide : '.$Slide->name);
-    return view('admin.slides.edit', compact('Slide'));
+    $this->setPageTitle('Slides', 'Edit Slide : '.$slide->name);
+    return view('admin.slides.edit', compact('slide'));
 }
 
 /**
@@ -85,8 +85,12 @@ public function edit($id)
 public function update(Request $request)
 {
     $this->validate($request, [
-        'name'      =>  'required|max:191',
-        'image'     =>  'mimes:jpg,jpeg,png|max:1000'
+        'title'      =>  'required|max:191',
+        'sub_title'      =>  'required|max:191',
+        'description'      =>  'required|max:191',
+        'button_text'      =>  'required|max:191',
+        'button_link'      =>  'required|max:191',
+        'image'     =>  'required|mimes:jpg,jpeg,png|max:1000'
     ]);
 
     $params = $request->except('_token');

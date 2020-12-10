@@ -51,6 +51,17 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::post('/delete-values', 'Admin\AttributeValueController@deleteValues');
         });
 
+        Route::group(['prefix'  =>   'shippings'], function() {
+
+            Route::get('/', 'Admin\ShippingController@index')->name('admin.shippings.index');
+            Route::get('/create', 'Admin\ShippingController@create')->name('admin.shippings.create');
+            Route::post('/store', 'Admin\ShippingController@store')->name('admin.shippings.store');
+            Route::get('/{id}/edit', 'Admin\ShippingController@edit')->name('admin.shippings.edit');
+            Route::post('/update', 'Admin\ShippingController@update')->name('admin.shippings.update');
+            Route::get('/{id}/delete', 'Admin\ShippingController@delete')->name('admin.shippings.delete');
+
+        });
+
         Route::group(['prefix'  =>   'brands'], function() {
 
     Route::get('/', 'Admin\BrandController@index')->name('admin.brands.index');

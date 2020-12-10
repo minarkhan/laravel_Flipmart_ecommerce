@@ -10,7 +10,7 @@
 
          <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.slides.index' ? 'active' : '' }}" href="{{ route('admin.slides.index') }}">
-                <i class="app-menu__icon fa fa-cogs"></i>
+                <i class="app-menu__icon fa fa-slideshare"></i>
                 <span class="app-menu__label">Slides</span>
             </a>
         </li>
@@ -37,6 +37,12 @@
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.products.index' ? 'active' : '' }}" href="{{ route('admin.products.index') }}">
                 <i class="app-menu__icon fa fa-shopping-bag"></i>
                 <span class="app-menu__label">Products</span>
+            </a>
+        </li>
+        <li>
+            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.shippings.index' ? 'active' : '' }}" href="{{ route('admin.shippings.index') }}">
+                <i class="app-menu__icon fa fa-slideshare"></i>
+                <span class="app-menu__label">Shipping</span>
             </a>
         </li>
       

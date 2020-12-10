@@ -65,19 +65,19 @@ class SlideRepository extends BaseRepository implements SlideContract
         try {
             $collection = collect($params);
 
-            $logo = null;
+            $image = null;
 
-            if ($collection->has('logo') && ($params['logo'] instanceof  UploadedFile)) {
-                $logo = $this->uploadOne($params['logo'], 'Slides');
+            if ($collection->has('image') && ($params['image'] instanceof  UploadedFile)) {
+                $image = $this->uploadOne($params['image'], 'slides');
             }
 
-            $merge = $collection->merge(compact('logo'));
+            $merge = $collection->merge(compact('image'));
 
-            $Slide = new Slide($merge->all());
+            $slide = new Slide($merge->all());
 
-            $Slide->save();
+            $slide->save();
 
-            return $Slide;
+            return $slide;
 
         } catch (QueryException $exception) {
             throw new InvalidArgumentException($exception->getMessage());
@@ -90,24 +90,26 @@ class SlideRepository extends BaseRepository implements SlideContract
      */
     public function updateSlide(array $params)
     {
-        $Slide = $this->findSlideById($params['id']);
+        $slide = $this->findSlideById($params['id']);
 
         $collection = collect($params)->except('_token');
 
-        if ($collection->has('logo') && ($params['logo'] instanceof  UploadedFile)) {
+        $image=null;
 
-            if ($Slide->logo != null) {
-                $this->deleteOne($Slide->logo);
+        if ($collection->has('image') && ($params['image'] instanceof  UploadedFile)) {
+
+            if ($slide->image != null) {
+                $this->deleteOne($slide->image);
             }
 
-            $logo = $this->uploadOne($params['logo'], 'Slides');
+            $image = $this->uploadOne($params['image'], 'slides');
         }
 
-        $merge = $collection->merge(compact('logo'));
+        $merge = $collection->merge(compact('image'));
 
-        $Slide->update($merge->all());
+        $slide->update($merge->all());
 
-        return $Slide;
+        return $slide;
     }
 
     /**
@@ -116,14 +118,14 @@ class SlideRepository extends BaseRepository implements SlideContract
      */
     public function deleteSlide($id)
     {
-        $Slide = $this->findSlideById($id);
+        $slide = $this->findSlideById($id);
 
-        if ($Slide->logo != null) {
-            $this->deleteOne($Slide->logo);
+        if ($slide->image != null) {
+            $this->deleteOne($slide->image);
         }
 
-        $Slide->delete();
+        $slide->delete();
 
-        return $Slide;
+        return $slide;
     }
 }

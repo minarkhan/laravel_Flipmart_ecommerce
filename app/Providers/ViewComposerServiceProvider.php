@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Slide;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Category;
@@ -40,6 +41,10 @@ class ViewComposerServiceProvider extends ServiceProvider
 
         View::composer('site.partials.upsell_product', function ($view) {
             $view->with('products', Product::all());
+        });
+
+        View::composer('site.partials.slide', function ($view) {
+            $view->with('slides', Slide::all());
         });
     }
 }

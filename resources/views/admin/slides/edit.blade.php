@@ -15,53 +15,36 @@
                     @csrf
                     <div class="tile-body">
                         <div class="form-group">
-                            <label class="control-label" for="name">Name <span class="m-l-5 text-danger"> *</span></label>
-                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name', $targetslide->name) }}"/>
-                            <input type="hidden" name="id" value="{{ $targetslide->id }}">
+                            <label class="control-label" for="title">Title <span class="m-l-5 text-danger"> *</span></label>
+                            <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" id="title" value="{{ old('name', $slide->title) }}"/>
                             @error('name') {{ $message }} @enderror
+                            <input type="hidden" name="id" value="{{ $slide->id }}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="sub_title">Sub Title <span class="m-l-5 text-danger"> *</span></label>
+                            <input class="form-control @error('sub_title') is-invalid @enderror" type="text" name="sub_title" id="sub_title" value="{{ old('sub_title', $slide->sub_title) }}"/>
+                            @error('sub_title') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="description">Description</label>
-                            <textarea class="form-control" rows="4" name="description" id="description">{{ old('description', $targetslide->description) }}</textarea>
-                        </div>
-                       <div class="form-group">
-                            <label for="parent">Parent slide <span class="m-l-5 text-danger"> *</span></label>
-                            <select id=parent class="form-control custom-select mt-15 @error('parent_id') is-invalid @enderror" name="parent_id">
-                                <option value="0">Select a parent slide</option>
-                                @foreach($slides as $key => $slide)
-                                    @if ($targetslide->parent_id == $key)
-                                        <option value="{{ $key }}" selected> {{ $slide }} </option>
-                                    @else
-                                        <option value="{{ $key }}"> {{ $slide }} </option>
-                                    @endif
-                                @endforeach
-                            </select>
-                            @error('parent_id') {{ $message }} @enderror
+                            <textarea class="form-control" rows="4" name="description" id="description">{{ old('description', $slide->description) }}</textarea>
                         </div>
                         <div class="form-group">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" id="featured" name="featured"
-                                    {{ $targetslide->featured == 1 ? 'checked' : '' }}
-                                    />Featured slide
-                                </label>
-                            </div>
+                            <label class="control-label" for="button_text">Button Text<span class="m-l-5 text-danger"> *</span></label>
+                            <input class="form-control @error('button_text') is-invalid @enderror" type="text" name="button_text" id="button_text" value="{{ old('button_text',$slide->button_text) }}"/>
+                            @error('button_text') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" id="menu" name="menu"
-                                    {{ $targetslide->menu == 1 ? 'checked' : '' }}
-                                    />Show in Menu
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
+                            <label class="control-label" for="button_link">Button Link<span class="m-l-5 text-danger"> *</span></label>
+                            <input class="form-control @error('button_link') is-invalid @enderror" type="text" name="button_link" id="button_link" value="{{ old('button_link',$slide->button_link) }}"/>
+                            @error('button_link') {{ $message }} @enderror
+                        </div>                        
+                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    @if ($targetslide->image != null)
+                                    @if ($slide->image != null)
                                         <figure class="mt-2" style="width: 80px; height: auto;">
-                                            <img src="{{ asset('storage/'.$targetslide->image) }}" id="slideImage" class="img-fluid" alt="img">
+                                            <img src="{{ asset('storage/'.$slide->image) }}" id="slideImage" class="img-fluid" alt="img">
                                         </figure>
                                     @endif
                                 </div>
@@ -74,7 +57,7 @@
                         </div>
                     </div>
                     <div class="tile-footer">
-                        <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update slide</button>
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Save Slide</button>
                         &nbsp;&nbsp;&nbsp;
                         <a class="btn btn-secondary" href="{{ route('admin.slides.index') }}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
                     </div>

@@ -17,12 +17,9 @@
                         <thead>
                             <tr>
                                 <th> # </th>
-                                <th> Name </th>
-                                <th> Slug </th>
-                                <th class="text-center"> Parent </th>
-                                <th class="text-center"> Featured </th>
-                                <th class="text-center"> Menu </th>
-                                <th class="text-center"> Order </th>
+                                <th> Title </th>
+                                <th> Sub Title </th>
+                                <th class="text-center"> Description </th>
                                 <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                             </tr>
                         </thead>
@@ -31,26 +28,9 @@
                                 @if ($slide->id != 1)
                                     <tr>
                                         <td>{{ $slide->id }}</td>
-                                        <td>{{ $slide->name }}</td>
-                                        <td>{{ $slide->slug }}</td>
-                                        <td>{{ $slide->parent->name }}</td>
-                                        <td class="text-center">
-                                            @if ($slide->featured == 1)
-                                                <span class="badge badge-success">Yes</span>
-                                            @else
-                                                <span class="badge badge-danger">No</span>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">
-                                            @if ($slide->menu == 1)
-                                                <span class="badge badge-success">Yes</span>
-                                            @else
-                                                <span class="badge badge-danger">No</span>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">
-                                            {{ $slide->order }}
-                                        </td>
+                                        <td>{{ $slide->title }}</td>
+                                        <td>{{ $slide->sub_title }}</td>
+                                        <td>{{ $slide->description }}</td>
                                         <td class="text-center">
                                             <div class="btn-group" role="group" aria-label="Second group">
                                                 <a href="{{ route('admin.slides.edit', $slide->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
