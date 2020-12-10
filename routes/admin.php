@@ -1,4 +1,4 @@
-<?php
+ <?php
 Route::group(['prefix'  =>  'admin'], function () {
 
     Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
@@ -22,6 +22,17 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::get('/{id}/edit', 'Admin\CategoryController@edit')->name('admin.categories.edit');
             Route::post('/update', 'Admin\CategoryController@update')->name('admin.categories.update');
             Route::get('/{id}/delete', 'Admin\CategoryController@delete')->name('admin.categories.delete');
+
+        });
+
+        Route::group(['prefix'  =>   'slides'], function() {
+
+            Route::get('/', 'Admin\SlideController@index')->name('admin.slides.index');
+            Route::get('/create', 'Admin\SlideController@create')->name('admin.slides.create');
+            Route::post('/store', 'Admin\SlideController@store')->name('admin.slides.store');
+            Route::get('/{id}/edit', 'Admin\SlideController@edit')->name('admin.slides.edit');
+            Route::post('/update', 'Admin\SlideController@update')->name('admin.slides.update');
+            Route::get('/{id}/delete', 'Admin\SlideController@delete')->name('admin.slides.delete');
 
         });
 

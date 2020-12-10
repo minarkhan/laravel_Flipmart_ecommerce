@@ -20,6 +20,7 @@ class CreateSlideTable extends Migration
             $table->string('description');
             $table->string('button_text');
             $table->string('button_link');
+            $table->string('image');
             $table->timestamps();
         });
     }
