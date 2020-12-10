@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2020 at 09:01 AM
+-- Generation Time: Dec 10, 2020 at 10:23 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -161,6 +161,18 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `description`, `parent_id`, `fea
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `homes`
+--
+
+CREATE TABLE `homes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -191,7 +203,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2019_10_16_151743_drop_attribute_value_product_attribute_table', 1),
 (15, '2019_10_16_152051_alter_product_attributes_table', 1),
 (16, '2019_11_27_122203_create_orders_table', 1),
-(17, '2019_11_27_145048_create_order_items_table', 1);
+(17, '2019_11_27_145048_create_order_items_table', 1),
+(18, '2020_12_09_001952_create_homes_table', 2),
+(19, '2020_12_09_114857_create_slide_table', 2);
 
 -- --------------------------------------------------------
 
@@ -454,6 +468,33 @@ INSERT INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `slides`
+--
+
+CREATE TABLE `slides` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sub_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'description',
+  `button_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `slides`
+--
+
+INSERT INTO `slides` (`id`, `title`, `sub_title`, `description`, `button_text`, `button_link`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Web page template', 'Our Humble Beginnings', 'description', NULL, NULL, 'C:\\xampp\\tmp\\phpC8B8.tmp', '2020-12-10 02:26:01', '2020-12-10 02:26:01'),
+(2, 'Web page template', 'Our Humble Beginnings', 'description', NULL, NULL, 'C:\\xampp\\tmp\\php2541.tmp', '2020-12-10 02:26:25', '2020-12-10 02:26:25'),
+(3, 'Better colouring and header image', 'Our Humble Beginnings', 'dsafasdfasf', 'sdfasdf', 'adsfasdf', 'C:\\xampp\\tmp\\phpF4DC.tmp', '2020-12-10 02:29:29', '2020-12-10 02:29:29');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -516,6 +557,12 @@ ALTER TABLE `brands`
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `categories_slug_unique` (`slug`);
+
+--
+-- Indexes for table `homes`
+--
+ALTER TABLE `homes`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -583,6 +630,12 @@ ALTER TABLE `settings`
   ADD UNIQUE KEY `settings_key_unique` (`key`);
 
 --
+-- Indexes for table `slides`
+--
+ALTER TABLE `slides`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -624,10 +677,16 @@ ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
+-- AUTO_INCREMENT for table `homes`
+--
+ALTER TABLE `homes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -670,6 +729,12 @@ ALTER TABLE `product_images`
 --
 ALTER TABLE `settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `slides`
+--
+ALTER TABLE `slides`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
