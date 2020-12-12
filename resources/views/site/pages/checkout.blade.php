@@ -82,9 +82,26 @@
                                     </header>
                                     <article class="card-body">
                                         <dl class="dlist-align">
-                                            <dt>Total cost: </dt>
+                                            <dt>Sub Total cost: </dt>
                                             <dd class="text-right h5 b"> {{ config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }} </dd>
                                         </dl>
+                                         <dl class="dlist-align">
+                                            <dt>Shipping Cost: </dt>
+                                            <dd class="text-right h5 b">
+                                             <select class="form-control" name="shipping">
+                                                @foreach(App\Models\Shipping::all() as $shipping)
+                                                    <option value="{{$shipping->price}}">{{$shipping->method}} = {{$shipping->price}}</option>
+                                                @endforeach
+                                            </select>
+                                              
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                         <dd>
+                                            <dt>Total cost: </dt>
+                                            <dd class="text-right h5 b"> {{ config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }} </dd>
+                                         </dd>
+                                     </dl>
                                     </article>
                                 </div>
                             </div>

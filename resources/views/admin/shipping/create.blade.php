@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="method">Shipping Method <span class="m-l-5 text-danger"> *</span></label>
-                             <select class="form-control"  name="status" id="status">
+                             <select class="form-control"  name="method" id="method">
                                 <option value="Flat Rate">Flat Rate</option>
                                 <option value="Free Shipping">Free Shipping</option>
                                 <option value="Local Pickup">Local Pickup</option>
@@ -36,9 +36,9 @@
                             
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="rate">Rate <span class="m-l-5 text-danger"> *</span></label>
-                            <input class="form-control @error('rate') is-invalid @enderror" type="text" name="rate" id="rate" value="{{ old('rate') }}" placeholder="Shipping rate" />
-                            @error('rate') {{ $message }} @enderror
+                            <label class="control-label" for="price">Rate <span class="m-l-5 text-danger"> *</span></label>
+                            <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" id="price" value="{{ old('price') }}" placeholder="Shipping price" />
+                            @error('price') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="status">status <span class="m-l-5 text-danger"> *</span></label>

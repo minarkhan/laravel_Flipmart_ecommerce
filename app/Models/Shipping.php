@@ -11,6 +11,7 @@ class Shipping extends Model
     	'zone_name',
     	'zone_regions',
     	'method',
+    	'price',
     	'status'
     ];
 }

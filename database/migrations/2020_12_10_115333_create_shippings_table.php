@@ -18,6 +18,7 @@ class CreateShippingsTable extends Migration
             $table->string('zone_name');
             $table->string('zone_regions');
             $table->string('method');
+            $table->integer('price');
             $table->string('status');
             $table->timestamps();
         });

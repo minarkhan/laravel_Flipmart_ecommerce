@@ -12,7 +12,7 @@ class ShippingController extends Controller
 
 	public function index(){
 
-
+        
 		$shippings = Shipping::all();
 		$pageTitle = 'Shipping';
 		$subTitle = 'List Shipping';
@@ -26,26 +26,34 @@ class ShippingController extends Controller
 	}
 
 
-public function store(Request $request){
-	// return $request->all();
-    $this->validate($request, [
-        'zone_name'      =>  'required|max:191',
-        'zone_regions'      =>  'required|max:191',
-        'method'      =>  'required|max:191',
-        'status'      =>  'required|max:191'
-    ]);
-    $shipping = new Shipping;
-    $shipping->zone_name = $request->zone_name;
-    $shipping->zone_regions = $request->zone_regions;
-    $shipping->method = $request->method;
-    $shipping->status = $request->status;
+    public function store(Request $request){
+    	// return $request->all();
+        $this->validate($request, [
+            'zone_name'      =>  'required|max:191',
+            'zone_regions'      =>  'required|max:191',
+            'method'      =>  'required|max:191',
+            'price'      =>  'required|max:100',
+            'status'      =>  'required|max:191'
+        ]);
 
-    $shipping->save();
+        $shipping = new Shipping;
+        $shipping->zone_name = $request->zone_name;
+        $shipping->zone_regions = $request->zone_regions;
+        $shipping->method = $request->method;
+        $shipping->price = $request->price;
+        $shipping->status = $request->status;
 
-    return redirect()->route('admin.shippings.index');
+        $shipping->save();
+        return redirect()->route('admin.shippings.index');
 
-    
-}
+        
+    }
+
+    public function delete($id){
+        $shipping = Shipping::find($id);
+        $shipping->delete();
+        return $this->index();
+    }
 
 
 }
