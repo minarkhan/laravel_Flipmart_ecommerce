@@ -10,16 +10,16 @@
                   <div class="excerpt fadeInDown-2 hidden-xs"> <span>{{ $slide->description}}</span> </div>
                   <div class="button-holder fadeInDown-3"> <a href="{{ $slide->button_link}}" class="btn-lg btn btn-uppercase btn-primary shop-now-button">{{ $slide->button_text}}</a> </div>
                 </div>
-                <!-- /.caption --> 
+                <!-- /.caption -->
               </div>
-              <!-- /.container-fluid --> 
+              <!-- /.container-fluid -->
             </div>
             <!-- /.item -->
             @endforeach
 
 
-            
-            <div class="item" style="background-image: url({{asset('assets/website')}}/images/sliders/02.jpg);">
+
+            {{-- <div class="item" style="background-image: url({{asset('assets/website')}}/images/sliders/02.jpg);">
               <div class="container-fluid">
                 <div class="caption bg-color vertical-center text-left">
                   <div class="slider-header fadeInDown-1">Spring 2016</div>
@@ -27,18 +27,18 @@
                   <div class="excerpt fadeInDown-2 hidden-xs"> <span>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</span> </div>
                   <div class="button-holder fadeInDown-3"> <a href="index6c11.html?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
                 </div>
-                <!-- /.caption --> 
+                <!-- /.caption -->
               </div>
-              <!-- /.container-fluid --> 
-            </div>
-            <!-- /.item --> 
-            
+              <!-- /.container-fluid -->
+            </div> --}}
+            <!-- /.item -->
+
           </div>
-          <!-- /.owl-carousel --> 
+          <!-- /.owl-carousel -->
         </div>
-        
-        <!-- ========================================= SECTION – HERO : END ========================================= --> 
-        
+
+        <!-- ========================================= SECTION – HERO : END ========================================= -->
+
         <!-- ============================================== INFO BOXES ============================================== -->
         <div class="info-boxes wow fadeInUp">
           <div class="info-boxes-inner">
@@ -54,7 +54,7 @@
                 </div>
               </div>
               <!-- .col -->
-              
+
               <div class="hidden-md col-sm-4 col-lg-4">
                 <div class="info-box">
                   <div class="row">
@@ -66,7 +66,7 @@
                 </div>
               </div>
               <!-- .col -->
-              
+
               <div class="col-md-6 col-sm-4 col-lg-4">
                 <div class="info-box">
                   <div class="row">
@@ -77,11 +77,11 @@
                   <h6 class="text">Extra $5 off on all items </h6>
                 </div>
               </div>
-              <!-- .col --> 
+              <!-- .col -->
             </div>
-            <!-- /.row --> 
+            <!-- /.row -->
           </div>
-          <!-- /.info-boxes-inner --> 
+          <!-- /.info-boxes-inner -->
         </div>
-        <!-- /.info-boxes --> 
+        <!-- /.info-boxes -->
         <!-- ============================================== INFO BOXES : END ============================================== -->

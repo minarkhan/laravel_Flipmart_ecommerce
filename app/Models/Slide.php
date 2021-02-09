@@ -14,7 +14,7 @@ class Slide extends Model
     /**
      * @var string
      */
-    protected $table = 'Slides';
+    protected $table = 'slides';
 
     /**
      * @var array

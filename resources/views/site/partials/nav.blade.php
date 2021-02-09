@@ -3,32 +3,19 @@
     <div class="container">
       <div class="yamm navbar navbar-default" role="navigation">
         <div class="navbar-header">
-       <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
+       <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
         </div>
         <div class="nav-bg-class">
           <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
             <div class="nav-outer">
               <ul class="nav navbar-nav">
-                <li class="active dropdown yamm-fw"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
-                <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Clothing</a>
+                <li class="active dropdown yamm-fw"> <a href="{{ url('/') }}" data-hover="dropdown" class="dropdown-toggle" data-toggle="">Home</a> </li>
+                <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">All categories</a>
                   <ul class="dropdown-menu container">
                     <li>
                       <div class="yamm-content ">
                         <div class="row">
-
-                          <!-- <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Men</h2>
-                            <ul class="links">
-                              <li><a href="#">Dresses</a></li>
-                              <li><a href="#">Shoes </a></li>
-                              <li><a href="#">Jackets</a></li>
-                              <li><a href="#">Sunglasses</a></li>
-                              <li><a href="#">Sport Wear</a></li>
-                              <li><a href="#">Blazers</a></li>
-                              <li><a href="#">Shirts</a></li>
-                            </ul>
-                          </div> -->
                                 @foreach($categories as $cat)
                                     @foreach($cat->items as $category)
                                         @if ($category->items->count() > 0)
@@ -39,7 +26,7 @@
                                         @foreach($category->items as $item)
                                             <li><a href="{{ route('category.show', $item->slug) }}">{{ $item->name }}</a></li>
                                         @endforeach
-                                    </ul>    
+                                    </ul>
                                     </div>
                                     @else
                                         <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
@@ -50,48 +37,14 @@
                                         @endif
                                     @endforeach
                                 @endforeach
-
-
-
-
-                          <!-- /.col -->
-                          
-                          <!-- <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Boys</h2>
-                            <ul class="links">
-                              <li><a href="#">Toys & Games</a></li>
-                              <li><a href="#">Jeans</a></li>
-                              <li><a href="#">Shirts</a></li>
-                              <li><a href="#">Shoes</a></li>
-      `                        <li><a href="#">School Bags</a></li>
-                              <li><a href="#">Lunch Box</a></li>
-                              <li><a href="#">Footwear</a></li>
-                            </ul>
-                          </div> -->
-                          <!-- /.col -->
-                          
-                          <!-- <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Girls</h2>
-                            <ul class="links">
-                              <li><a href="#">Sandals </a></li>
-                              <li><a href="#">Shorts</a></li>
-                              <li><a href="#">Dresses</a></li>
-                              <li><a href="#">Jwellery</a></li>
-                              <li><a href="#">Bags</a></li>
-                              <li><a href="#">Night Dress</a></li>
-                              <li><a href="#">Swim Wear</a></li>
-                            </ul>
-                          </div> -->
-                          <!-- /.col -->
-                          
                           <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image"> <img class="img-responsive" src="{{asset('assets/website')}}/images/banners/top-menu-banner.jpg" alt=""> </div>
-                          <!-- /.yamm-content --> 
+                          <!-- /.yamm-content -->
                         </div>
                       </div>
                     </li>
                   </ul>
                 </li>
-                <li class="dropdown mega-menu"> 
+                {{-- <li class="dropdown mega-menu">
                 <a href="category.html"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics <span class="menu-label hot-menu hidden-xs">hot</span> </a>
                   <ul class="dropdown-menu container">
                     <li>
@@ -113,7 +66,7 @@
                             </ul>
                           </div>
                           <!-- /.col -->
-                          
+
                           <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
                             <h2 class="title">Desktops</h2>
                             <ul class="links">
@@ -130,7 +83,7 @@
                             </ul>
                           </div>
                           <!-- /.col -->
-                          
+
                           <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
                             <h2 class="title">Cameras</h2>
                             <ul class="links">
@@ -164,17 +117,49 @@
                           </div>
                           <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="#"><img alt="" src="{{asset('assets/website')}}/images/banners/banner-side.png"></a> </div>
                         </div>
-                        <!-- /.row --> 
+                        <!-- /.row -->
                       </div>
                       <!-- /.yamm-content --> </li>
                   </ul>
-                </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Health & Beauty <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Watches</a> </li>
-                <li class="dropdown"> <a href="contact.html">Jewellery</a> </li>
-                <li class="dropdown"> <a href="contact.html">Shoes</a> </li>
-                <li class="dropdown"> <a href="contact.html">Kids & Girls</a> </li>
-                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
+                </li> --}}
+                @foreach($categories as $cat)
+                    @foreach($cat->items as $category)
+                        @if ($category->items->count() > 0)
+                <li class="dropdown mega-menu">
+                    <a href="{{ route('category.show', $category->slug) }}"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">{{ $category->name }} <span class="menu-label hot-menu hidden-xs">hot</span> </a>
+                      <ul class="dropdown-menu container">
+                        <li>
+                          <div class="yamm-content">
+                            <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
+                                <h2 class="title">
+                                    <a href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
+                                    </h2>
+                                <ul class="links">
+                                    @foreach($category->items as $item)
+                                            <li><a href="{{ route('category.show', $item->slug) }}">{{ $item->name }}</a></li>
+                                        @endforeach
+                                </ul>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="#"><img alt="" src="{{ asset('storage/'.$category->image)}}"></a> </div>
+                            </div>
+                            <!-- /.row -->
+                          </div>
+                          <!-- /.yamm-content --> </li>
+                      </ul>
+                    </li>
+
+                    @endif
+                @endforeach
+            @endforeach
+
+
+{{--
+                <li class="dropdown hidden-sm">
+                    <a href="category.html">Health & Beauty <span class="menu-label new-menu hidden-xs">new</span> </a>
+                </li> --}}
+
+                {{-- <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
                   <ul class="dropdown-menu pages">
                     <li>
                       <div class="yamm-content">
@@ -202,23 +187,24 @@
                       </div>
                     </li>
                   </ul>
-                </li>
-                <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
+                </li> --}}
+
+                <li class="dropdown  navbar-right special-menu"> <a href="{{url('/')}}">Todays offer</a> </li>
               </ul>
               <!-- /.navbar-nav -->
               <div class="clearfix"></div>
             </div>
-            <!-- /.nav-outer --> 
+            <!-- /.nav-outer -->
           </div>
-          <!-- /.navbar-collapse --> 
-          
+          <!-- /.navbar-collapse -->
+
         </div>
-        <!-- /.nav-bg-class --> 
+        <!-- /.nav-bg-class -->
       </div>
-      <!-- /.navbar-default --> 
+      <!-- /.navbar-default -->
     </div>
-    <!-- /.container-class --> 
-    
+    <!-- /.container-class -->
+
   </div>
-  <!-- /.header-nav --> 
-  <!-- ============================================== NAVBAR : END ============================================== --> 
+  <!-- /.header-nav -->
+  <!-- ============================================== NAVBAR : END ============================================== -->

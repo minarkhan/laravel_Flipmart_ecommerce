@@ -94,7 +94,7 @@ class SlideRepository extends BaseRepository implements SlideContract
 
         $collection = collect($params)->except('_token');
 
-        $image=null;
+        // $image=null;
 
         if ($collection->has('image') && ($params['image'] instanceof  UploadedFile)) {
 

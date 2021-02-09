@@ -80,7 +80,7 @@ public function update(Request $request)
     $this->validate($request, [
         'name'      =>  'required|max:191',
         'image'     =>  'mimes:jpg,jpeg,png|max:1000'
-    ]);
+    ]); 
 
     $params = $request->except('_token');
 

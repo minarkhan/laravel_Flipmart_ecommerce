@@ -66,6 +66,20 @@
                                     <input type="email" class="form-control" name="email" value="{{ auth()->user()->email }}" disabled>
                                     <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
+                                
+                                <div class="form-group">
+                                    <label>Shipping</label>
+                                
+                                    @foreach(App\Models\Shipping::all() as $shipping)
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shipping" id="shipping" value="{{$shipping->price}}" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                        {{$shipping->method}} = {{$shipping->price}}
+                                        </label>
+                                    </div>
+                                    @endforeach
+                                
+                                </div>
                                 <div class="form-group">
                                     <label>Order Notes</label>
                                     <textarea class="form-control" name="notes" rows="6"></textarea>
@@ -85,7 +99,7 @@
                                             <dt>Sub Total cost: </dt>
                                             <dd class="text-right h5 b"> {{ config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }} </dd>
                                         </dl>
-                                         <dl class="dlist-align">
+                                         <!-- <dl class="dlist-align">
                                             <dt>Shipping Cost: </dt>
                                             <dd class="text-right h5 b">
                                              <select class="form-control" name="shipping">
@@ -95,7 +109,7 @@
                                             </select>
                                               
                                             </dd>
-                                        </dl>
+                                        </dl> -->
                                         <dl>
                                          <dd>
                                             <dt>Total cost: </dt>

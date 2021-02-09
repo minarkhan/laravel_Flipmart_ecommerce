@@ -15,7 +15,7 @@
     return view('welcome');
 });
 */
-Route::get('/', 'homeController@index');
+Route::get('/', 'HomeController@index');
 // Route::view('/', 'site.pages.homepage');
 Route::get('/category/{slug}', 'Site\CategoryController@show')->name('category.show');
 Route::get('/product/{slug}', 'Site\ProductController@show')->name('product.show');
