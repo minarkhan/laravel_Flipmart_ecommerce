@@ -4,6 +4,7 @@
 <p>composer install</p>
 <p>Change file name ".env. example" to ".env"</p>
 <p>php artisan key:generate</p>
+<p>sql database import to database from Sql_data Folder</p>
 <p>php artisan migrate</p>
 <p>Open Factory from DatabaseSeeder.php</p>
 <p>php artisan db:seed</p>
