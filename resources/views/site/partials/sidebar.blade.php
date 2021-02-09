@@ -51,10 +51,22 @@
         <div class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs">
           <h3 class="section-title">hot deals</h3>
           <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
+
+            @php
+                $i = 90;
+            @endphp
+            @foreach ($products as $product)
+            @if($product->id > $i && $product->id < $i+10)
             <div class="item">
               <div class="products">
                 <div class="hot-deal-wrapper">
-                  <div class="image"> <img src="{{asset('assets/website')}}/images/hot-deals/p25.jpg" alt=""> </div>
+                  <div class="image">
+                    @if ($product->images->count() > 0)
+                      <img src="{{ asset('storage/'.$product->images->first()->full) }}" alt="{{$product->name}}">
+                    @else
+                    <img src="https://uat-dcomm.3ex.com.my//images/default-product.png" alt="{{ $product->name }}">
+                    @endif
+                    </div>
                   <div class="sale-offer-tag"><span>49%<br>
                     off</span></div>
                   <div class="timing-wrapper">
@@ -75,26 +87,35 @@
                 <!-- /.hot-deal-wrapper -->
 
                 <div class="product-info text-left m-t-20">
-                  <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                  <h3 class="name"><a href="{{ route('product.show', $product->slug) }}">{{$product->name}}</a></h3>
                   <div class="rating rateit-small"></div>
-                  <div class="product-price"> <span class="price"> $600.00 </span> <span class="price-before-discount">$800.00</span> </div>
+                  <div class="product-price"> <span class="price"> {{$product->sale_price}} </span> <span class="price-before-discount">{{$product->price}}</span> </div>
                   <!-- /.product-price -->
 
                 </div>
                 <!-- /.product-info -->
 
+                <a href="{{ route('product.show', $product->slug) }}">
                 <div class="cart clearfix animate-effect">
                   <div class="action">
                     <div class="add-cart-button btn-group">
                       <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
                       <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                     </div>
-                  </div>
-                  <!-- /.action -->
                 </div>
+                <!-- /.action -->
+            </div>
+        </a>
                 <!-- /.cart -->
               </div>
             </div>
+            @endif
+            @endforeach
+
+
+
+
+
             <div class="item">
               <div class="products">
                 <div class="hot-deal-wrapper">
@@ -467,7 +488,13 @@
         <div class="sidebar-widget product-tag wow fadeInUp">
           <h3 class="section-title">Product tags</h3>
           <div class="sidebar-widget-body outer-top-xs">
-            <div class="tag-list"> <a class="item" title="Phone" href="category.html">Phone</a> <a class="item active" title="Vest" href="category.html">Vest</a> <a class="item" title="Smartphone" href="category.html">Smartphone</a> <a class="item" title="Furniture" href="category.html">Furniture</a> <a class="item" title="T-shirt" href="category.html">T-shirt</a> <a class="item" title="Sweatpants" href="category.html">Sweatpants</a> <a class="item" title="Sneaker" href="category.html">Sneaker</a> <a class="item" title="Toys" href="category.html">Toys</a> <a class="item" title="Rose" href="category.html">Rose</a> </div>
+            <div class="tag-list">
+                @foreach($products->slice(0, 10) as $product)
+                @foreach($product->categories->slice(0, 2) as $category)
+                <a class="item" title="Phone" href="{{Route('category.show', $category->slug)}}">{{$category->name}}</a>
+                @endforeach
+                @endforeach
+                </div>
             <!-- /.tag-list -->
           </div>
           <!-- /.sidebar-widget-body -->

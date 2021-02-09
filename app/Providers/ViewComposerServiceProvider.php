@@ -23,7 +23,9 @@ class ViewComposerServiceProvider extends ServiceProvider
         });
 
         View::composer('site.partials.sidebar', function ($view) {
-            $view->with('categories', Category::orderByRaw('-name ASC')->get()->nest());
+            $view
+                ->with('categories', Category::orderByRaw('name ASC')->get()->nest())
+                ->with('products', Product::all());
         });
 
         View::composer('site.partials.header', function ($view) {
@@ -36,7 +38,8 @@ class ViewComposerServiceProvider extends ServiceProvider
                 ->with('cartTotal', $cartTotal)
                 ->with('cartCount', $cartCount)
                 ->with('items', $items)
-                ->with('productImgs', $productImgs);
+                ->with('productImgs', $productImgs)
+                ->with('categories', Category::orderByRaw('-name ASC')->get()->nest());
         });
 
         View::composer('site.partials.upsell_product', function ($view) {
@@ -46,5 +49,10 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer('site.partials.slide', function ($view) {
             $view->with('slides', Slide::all());
         });
+
+        // View::composer('site.partials.sidebar', function ($view) {
+        //     $view->with('category', Slide::all());
+        // });
+
     }
 }

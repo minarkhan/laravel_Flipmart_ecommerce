@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Contracts\ProductContract;
 use App\Contracts\AttributeContract;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Cart;
 class ProductController extends Controller
 {
@@ -30,5 +31,11 @@ class ProductController extends Controller
     Cart::add(uniqid(), $product->name, $request->input('price'), $request->input('qty'), $options);
 
     return redirect()->back()->with('message', 'Item added to cart successfully.');
+    }
+
+    public function search(Request $req){
+        $query = $req->input('query');
+        $results = Product::where('name', 'like', "%$query%")->get();
+        return view('site.pages.search')->with('results', $results);
     }
 }

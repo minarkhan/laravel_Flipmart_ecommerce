@@ -1,14 +1,14 @@
 
 <!-- ============================================== HEADER ============================================== -->
-<header class="header-style-1">   
+<header class="header-style-1">
   <!-- ============================================== TOP MENU ============================================== -->
   <div class="top-bar animate-dropdown">
     <div class="container">
       <div class="header-top-inner">
         <div class="cnt-account">
           <ul class="list-unstyled">
-            <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
-            <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
+            <li><a href="{{ route('checkout.cart') }}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
+            <li><a href="{{ route('checkout.cart') }}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
             <li><a href="{{ route('checkout.cart') }}"><i class="icon fa fa-check"></i>Checkout</a></li>
 
             @guest
@@ -46,7 +46,7 @@
           </ul>
         </div>
         <!-- /.cnt-account -->
-        
+
         <div class="cnt-block">
           <ul class="list-unstyled list-inline">
             <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
@@ -64,60 +64,75 @@
               </ul>
             </li>
           </ul>
-          <!-- /.list-unstyled --> 
+          <!-- /.list-unstyled -->
         </div>
         <!-- /.cnt-cart -->
         <div class="clearfix"></div>
       </div>
-      <!-- /.header-top-inner --> 
+      <!-- /.header-top-inner -->
     </div>
-    <!-- /.container --> 
+    <!-- /.container -->
   </div>
-  <!-- /.header-top --> 
+  <!-- /.header-top -->
   <!-- ============================================== TOP MENU : END ============================================== -->
   <div class="main-header">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
+        <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
           <!-- ============================================================= LOGO ============================================================= -->
            <div class="logo">
                 <a href="{{ url('/') }}">
                     <img class="logo" src="{{asset('assets/website')}}/images/logo.png" alt="logo">
                 </a>
             </div>
-          
-          <!-- /.logo --> 
+
+          <!-- /.logo -->
           <!-- ============================================================= LOGO : END ============================================================= --> </div>
         <!-- /.logo-holder -->
-        
-        <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder"> 
-          <!-- /.contact-row --> 
+
+        <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder">
+          <!-- /.contact-row -->
           <!-- ============================================================= SEARCH AREA ============================================================= -->
           <div class="search-area">
-            <form>
+            <form action="{{Route('search')}}" method="GET">
+                {{-- @csrf --}}
               <div class="control-group">
                 <ul class="categories-filter animate-dropdown">
                   <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu" >
-                      <li class="menu-header">Computer</li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Clothing</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Shoes</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Watches</a></li>
+
+
+                            @foreach($categories as $cat)
+                                @foreach($cat->items as $category)
+                                    @if ($category->items->count() > 0)
+                                <li class="menu-header">{{ $category->name }}</li>
+                                @foreach($category->items as $item)
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('category.show', $item->slug) }}">- {{ $item->name }}</a></li>
+                            @endforeach
+                            {{-- @else
+                                <li class="menu-header">{{ $category->name }}</li> --}}
+                            @endif
+                            @endforeach
+                            @endforeach
+
+
+
                     </ul>
                   </li>
                 </ul>
-                <input class="search-field" placeholder="Search here..." />
-                <a class="search-button" href="#" ></a> </div>
+                <input class="search-field"  value="{{ request()->input('query')}}" name="query" id="query" placeholder="Search here..." />
+                <input type="submit" class="search-button" value="Search">
+                {{-- <a class="search-button" href="#" ></a>  --}}
+            </div>
             </form>
           </div>
-          <!-- /.search-area --> 
+          <!-- /.search-area -->
           <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
         <!-- /.top-search-holder -->
-        
-        <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row"> 
+
+        <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row">
           <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
-          
+
           <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
             <div class="items-cart-inner">
               <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
@@ -132,7 +147,7 @@
 
 
 
-                <li> 
+                <li>
                 @foreach ($items as $item)
                   <div class="cart-item product-summary">
                     <div class="row">
@@ -166,27 +181,27 @@
                     <div class="clearfix"></div>
                     <a href="{{ route('checkout.cart') }}" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
                   </div>
-                  <!-- /.cart-total--> 
+                  <!-- /.cart-total-->
                 </li>
 
 
 
 
             </ul>
-            <!-- /.dropdown-menu--> 
+            <!-- /.dropdown-menu-->
           </div>
-          <!-- /.dropdown-cart --> 
-          
+          <!-- /.dropdown-cart -->
+
           <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= --> </div>
-        <!-- /.top-cart-row --> 
+        <!-- /.top-cart-row -->
       </div>
-      <!-- /.row --> 
-      
+      <!-- /.row -->
+
     </div>
-    <!-- /.container --> 
-    
+    <!-- /.container -->
+
   </div>
-  <!-- /.main-header --> 
-  
+  <!-- /.main-header -->
+
   @include('site.partials.nav')
 </header>
