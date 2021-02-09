@@ -1,13 +1,17 @@
+## Live at https://portfolio.minarkhan.com/laravel/ecommerce/
 ## Use
 <p>cd Laravel_Flipmart_ecommerce</p>
 <p>composer install</p>
 <p>Change file name ".env. example" to ".env"</p>
 <p>php artisan key:generate</p>
 <p>php artisan migrate</p>
+<p>Open Factory from DatabaseSeeder.php</p>
 <p>php artisan db:seed</p>
 <p>php artisan serve</p>
 
 
+
+<img src="https://portfolio.minarkhan.com/laravel/ecommerce/screencaptur.png">
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
